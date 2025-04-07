@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saludo Personalizado</title>
+   <link rel="stylesheet" href="syle.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Bienvenido a la app de saludo</h1>
+    <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+    <button onclick="saludar()">Saludar</button>
+    <div id="message"></div>
+</div>
+
+<script>
+function saludar() {
+    const nombre = document.getElementById('nombre').value;
+
+    if (nombre) {
+        console.log(`Enviando solicitud a: http://localhost:3000/saludo/${nombre}`); // Agrega esta línea
+
+        fetch(`http://localhost:3000/saludo/${nombre}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                document.getElementById('message').textContent = data;
+            })
+            .catch(error => {
+                console.error('Error al hacer la solicitud:', error);
+            });
+    } else {
+        alert('Por favor ingresa un nombre');
+    }
+}
+
+</script>
+
+</body>
+</html>

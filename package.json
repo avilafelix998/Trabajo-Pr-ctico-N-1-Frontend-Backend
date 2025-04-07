@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "morgan": "^1.10.0"
+  },
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "main": "server.js",
+  "type": "module"
+}
