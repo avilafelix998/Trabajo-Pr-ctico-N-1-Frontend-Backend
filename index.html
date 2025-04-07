@@ -20,7 +20,7 @@ function saludar() {
     const nombre = document.getElementById('nombre').value;
 
     if (nombre) {
-        console.log(`Enviando solicitud a: http://localhost:3000/saludo/${nombre}`); // Agrega esta línea
+        console.log(`Enviando solicitud a: http://localhost:3000/saludo/${nombre}`); 
 
         fetch(`http://localhost:3000/saludo/${nombre}`)
             .then(response => {
